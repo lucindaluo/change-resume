@@ -4,7 +4,7 @@ This is empty on purpose! Your code to build the resume will go here.
  var bio = {
  	"name" : "Lucinda Luo",
     "role" : "Front End Web Developer",
-    "contact" : {
+    "contacts" : {
     	mobile:"13810453283",
     	email:"448177067@qq.com",
     	github:"lucindaluo",
@@ -19,11 +19,11 @@ This is empty on purpose! Your code to build the resume will go here.
  	$("#header").prepend(HTMLheaderRole.replace("%data%", bio.role));
  	$("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
 
-    $("#topContacts").append(HTMLmobile.replace("%data%", bio.contact.mobile));
-    $("#topContacts").append(HTMLemail.replace("%data%", bio.contact.email));
-    $("#topContacts").append(HTMLgithub.replace("%data%", bio.contact.github));
-    $("#topContacts").append(HTMLtwitter.replace("%data%", bio.contact.twitter));
-    $("#topContacts").append(HTMLlocation.replace("%data%", bio.contact.location));
+    $("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+    $("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+    $("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+    $("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+    $("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
 
     $("#header").append(HTMLbioPic.replace("%data%", bio.biopic));
     $("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
@@ -33,7 +33,13 @@ This is empty on purpose! Your code to build the resume will go here.
  		var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
  		$("#skills").append(formattedSkill);
  	}
- 
+
+    $("#footerContacts").append(HTMLmobile.replace("%data%",bio.contacts.mobile));
+    $("#footerContacts").append(HTMLemail.replace("%data%",bio.contacts.email));
+    $("#footerContacts").append(HTMLgithub.replace("%data%",bio.contacts.github));
+    $("#footerContacts").append(HTMLtwitter.replace("%data%",bio.contacts.twitter));
+    $("#footerContacts").append(HTMLlocation.replace("%data%",bio.contacts.location));
+
 };
 
 
@@ -46,7 +52,7 @@ This is empty on purpose! Your code to build the resume will go here.
  	           	name:"Central University of Finance and Economics",
                 location:"Beijing China",
                 degree:"not included",
-                majors:"Business",
+                major:"Business",
                 dates:"2005",
                 url:"http://www.cufe.edu.cn"
  	            },
@@ -54,7 +60,7 @@ This is empty on purpose! Your code to build the resume will go here.
  	           	name:"North China University of Technology",
                 location:"Beijing China",
                 degree:"Bachelor of Engineering",
-                majors:"Computer science and technology",
+                major:"Computer science and technology",
                 dates:"2016",
                 url:"http://www.ncut.edu.cn/"
  	            }],
@@ -74,14 +80,14 @@ This is empty on purpose! Your code to build the resume will go here.
                     ]  
  	           };
  	education.display = function(){
- 		$("#education").append(HTMLschoolStart);
-
- 		for(var i=0; i<education.schools.length;i++){
+ 		
+        for(var i=0; i<education.schools.length;i++){
+ 			$("#education").append(HTMLschoolStart);
 
  			var formattedName = HTMLschoolName.replace("%data%", education.schools[i].name);
  			var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location);
  			var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
- 			var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[i].majors);
+ 			var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[i].major);
  			var formattedDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
  			var formattedDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
             
@@ -171,10 +177,10 @@ var work = {
 //start of projects
 
 var projects = {
-  "title" : "App Product Design",
-  "dates": "2015-2016",
-  "description" :"Used sketch for APP Design",
-  "images" : "http://placekitten.com/100/100"
+  'title' : "App Product Design",
+  'dates': "2015-2016",
+  'description' :"Used sketch for APP Design",
+  'images' : ["http://placekitten.com/100/100"]
 };
 
 projects.display = function(){
